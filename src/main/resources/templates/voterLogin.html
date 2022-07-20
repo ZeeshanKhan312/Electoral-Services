@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+    <title>Voter Portal</title>
+    <link href="" th:href="@{/CSS/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+<div class="background-image">
+    <div class="heading">
+        <h1 style="font-size: 18mm;"><img th:src="@{photos/title_icon.png}" width="60px">National Electoral Services Portal</h1>
+        <h2>Election Commission of India</h2>
+    </div>
+    <div class="wrapper">
+        <div class="slogan">
+            <p>“The vote is precious. It is almost sacred. It is the most powerful non-violent tool we have in a democracy.”</br>
+                -John Lewis</p>
+        </div>
+        <div class="login">
+            <form th:action="@{/login}" th:object="${voter}" method="post">
+                <h3><u>Voter Login</u></h3>
+                VoterId: <input  type="text" class= "form-control" th:field="*{voterId}"  required></br>
+                Date-of-Birth: <input  type= "datetime-local" class= "form-control" th:field="*{dob}" ></br>
+                <button id="voter-login" type="submit">Log In</button> <button type="reset">Reset</button></br>
+                <h4>OR</br><a th:href="@{/adminLogin}">Login as a Admin.</a></h4>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!--    <script src="./scripts/voterLogin.js"></script>-->
+</body>
+
+</html>
